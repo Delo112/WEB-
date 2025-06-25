@@ -5,7 +5,7 @@ import mongoose from 'mongoose'
 
 // Connection URL
 mongoose.Promise = global.Promise
-mongoose.connect('mongodb+srv://WEB:CLASSROOM@classroom.q23afo1.mongodb.net/web-classroom?retryWrites=true&w=majority&appName=CLASSROOM', {
+mongoose.connect('mongodb+srv://WebClassroom:<db_password>@cluster0.laec3qo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
