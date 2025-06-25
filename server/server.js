@@ -5,10 +5,18 @@ import mongoose from 'mongoose'
 
 // Connection URL
 mongoose.Promise = global.Promise
-mongoose.connect(config.mongoUri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
-mongoose.connection.on('error', () => {
-  throw new Error(`unable to connect to database: ${config.mongoUri}`)
+mongoose.connect('mongodb+srv://WEB:CLASSROOM@classroom.q23afo1.mongodb.net/web-classroom?retryWrites=true&w=majority&appName=CLASSROOM', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 })
+.then(() => {
+  console.log('✅ Connected to MongoDB at', config.mongoUri)
+})
+.catch((err) => {
+  console.error('❌ Failed to connect to MongoDB:', err)
+  // Menampilkan error dan keluar dari proses
+  process.exit(1)
+});
 
 app.listen(config.port, (err) => {
   if (err) {
